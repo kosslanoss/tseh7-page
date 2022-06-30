@@ -1,0 +1,180 @@
+.header {
+  background-color: $firm;
+  padding: 20px 0 15px;
+  color: $light;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transition: background-color 0.3s, padding 0.3s;
+  
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.menu {
+  &__btn {
+    position: relative;
+    right: 20%;
+    border: none;
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    width: 25px;
+    padding: 0;
+    order: 1;
+
+    span {
+      height: 2px;
+      width: 100%;
+      background-color: $light;
+      position: absolute;
+      transition: transform 1s;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $light;
+      left: 0;
+      transition: transform 1s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__btn--active {
+    span {
+       top: 2px;
+       transform: rotate(360deg);
+       left: 8px;
+       width: 50%;
+    }
+
+    &::after {
+      top: -10px;
+      transform: rotate(360deg);
+      width: 70%;
+      left: 5px;
+    }
+
+    &::before {
+      top: 2px;
+      left: 2px;
+      transform: rotate(300deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__link {
+    padding: 5px;
+    display: block;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $grey;
+    }
+    
+    &:focus {
+      transition: border 0.9s;
+      border-bottom: 1px solid $light;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.phone {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $grey;
+  }
+
+  &:focus {
+    transition: border 0.9s;
+    border-bottom: 1px solid $light;
+  }
+}
+
+@media (max-width: 992px) {
+  .menu {
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      background-color: $firm;
+      width: 100%;
+      transform: translateY(-200%);
+      position: absolute;
+      top: 105px;
+      left: 0;
+      z-index: 5;
+      transition: transform 0.3s;
+
+      &.menu__list--active {
+        transform: translateY(0);
+      }
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 0;
+    }
+
+    &__btn {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 5px 0 0;
+  }
+
+  .menu {
+    &__list--active {
+      top: 75px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    margin-right: 25px;
+  }
+
+  .phone {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 460px) {
+  .header {
+    &__wrapper {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'global';
+@import 'libs';
+
+@import './components/header';
+@import './components/footer';
+@import './index-page/hero';
+@import './index-page/services';
+@import './index-page/about';
+@import './index-page/specialists';
+@import './index-page/feedback';
+@import './index-page/question';
+
+
+
+
+@import 'media';
